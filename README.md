@@ -46,14 +46,17 @@ In this case, when a request comes to the `/app` path, users on Android devices 
     "path": "/deeplink",
     "targets": {
       "android": {
-        "deepLink": "example://details/123",
-        "fallback": "https://play.google.com/store/apps/details?id=com.example"
+        "appName": "twitter",
+        "appPackage": "com.twitter.android",
+        "appPath": "user?screen_name=appwrite",
+        "fallback": "https://play.google.com/store/apps/details?id=com.twitter.android"
       },
       "ios": {
-        "deepLink": "example://details/123",
-        "fallback": "https://apps.apple.com/app/example/id123456"
+        "appName": "twitter",
+        "appPath": "user?screen_name=appwrite",
+        "fallback": "https://apps.apple.com/us/app/twitter/id333903271"
       },
-      "default": "https://www.example.com/details/123"
+      "default": "https://twitter.com/appwrite"
     }
   }
 ]
