@@ -10,6 +10,17 @@ This function dependent on Appwrite 1.4. Please note, as of the writing of this 
 
 Dynamic links are links that redirect users to different locations based on their device, operating system, or other factors. For example, a link to a mobile app can redirect users to the Google Play Store or Apple App Store depending on their device. Dynamic links can also be used to redirect users to Deep Links - a specific page within a Mobile app, such as a user profile page.
 
+### Web
+https://github.com/appwrite/dynamic-links/assets/29069505/209bc34e-6a43-476c-b2f0-697bab2c54de
+
+### iOS
+https://github.com/appwrite/dynamic-links/assets/29069505/7cac33ad-acc0-406f-9dae-c1d0359dd356
+
+
+### Android
+https://github.com/appwrite/dynamic-links/assets/29069505/72af1583-9e8c-4798-bbd6-40706ab8d40e
+
+
 ## Configuration
 
 The service can be configured through the `CONFIG` environment variable in a JSON string format. Each object in the `CONFIG` array is expected to have a `path` and `targets`.
