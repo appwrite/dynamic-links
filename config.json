@@ -1,0 +1,42 @@
+[
+  {
+    "path": "/dev",
+    "targets": {
+      "android": "https://developer.android.com/",
+      "ios": "https://developer.apple.com/",
+      "default": "https://developer.mozilla.org/"
+    }
+  },
+  {
+    "path": "/mobile",
+    "targets": {
+      "mobile": "https://cloud.appwrite.io",
+      "default": "https://appwrite.io"
+    }
+  },
+  {
+    "path": "/appstore",
+    "targets": {
+      "android": "https://play.google.com/store/apps/details?id=com.instagram.barcelona",
+      "ios": "https://apps.apple.com/us/app/threads-an-instagram-app/id6446901002",
+      "default": "https://www.threads.net/"
+    }
+  },
+  {
+    "path": "/deeplink",
+    "targets": {
+      "android": {
+        "appName": "twitter",
+        "appPackage": "com.twitter.android",
+        "appPath": "user?screen_name=appwrite",
+        "fallback": "https://play.google.com/store/apps/details?id=com.twitter.android"
+      },
+      "ios": {
+        "appName": "twitter",
+        "appPath": "user?screen_name=appwrite",
+        "fallback": "https://apps.apple.com/us/app/twitter/id333903271"
+      },
+      "default": "https://twitter.com/appwrite"
+    }
+  }
+]

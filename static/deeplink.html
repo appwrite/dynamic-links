@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Redirecting…</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/@appwrite.io/pink" />
+    <link rel="stylesheet" href="https://unpkg.com/@appwrite.io/pink-icons" />
+  </head>
+  <body>
+    <main class="main-content">
+      <div class="top-cover u-padding-block-end-56">
+        <div
+          class="container u-flex-vertical u-cross-center"
+          style="max-width: 40rem"
+        >
+          <div class="u-flex u-main-center u-margin-block-start-16">
+            <h1 class="heading-level-1">Redirecting</h1>
+            <code class="u-un-break-text"></code>
+          </div>
+          <p class="body-text-1 u-normal u-margin-block-start-8 u-text-center">
+            You will be redirected automatically. <br />
+            If nothing happens, click the button below.
+          </p>
+          <a
+            id="manual"
+            class="button u-margin-block-start-16"
+            href="{{FALLBACK}}"
+            onclick="navigateFallback()"
+            >Open Link</a
+          >
+        </div>
+      </div>
+    </main>
+
+    <script>
+      const appName = "{{APP_NAME}}";
+      const appPath = "{{APP_PATH}}";
+      const appPackage = "{{APP_PACKAGE}}";
+      const fallback = "{{FALLBACK}}";
+
+      function navigateFallback() {
+        setTimeout(() => {
+          window.location.href = fallback;
+        }, 500);
+      }
+
+      window.addEventListener("DOMContentLoaded", function () {
+        const manualAnchor = document.querySelector("#manual");
+
+        if (/Android/i.test(window.navigator.userAgent)) {
+          let intentURL = `intent://${appPath}#Intent;scheme=${appName};package=${appPackage};action=android.intent.action.VIEW;category=android.intent.category.DEFAULT;category=android.intent.category.BROWSABLE;`;
+
+          if (fallback) {
+            intentURL += `S.browser_fallback_url=${encodeURIComponent(
+              fallback
+            )}`;
+          }
+
+          intentURL += ";end";
+
+          manualAnchor.setAttribute("href", intentURL);
+          manualAnchor.textContent = intentURL;
+
+          window.location.href = intentURL;
+          navigateFallback();
+
+          return;
+        }
+
+        if (/iPhone|iPad|iPod/i.test(window.navigator.userAgent)) {
+          const deepLink = `${appName}://${appPath}`;
+
+          manualAnchor.setAttribute("href", deepLink);
+          manualAnchor.textContent = deepLink;
+
+          window.location.href = deepLink;
+          navigateFallback();
+
+          return;
+        }
+
+        return;
+        window.location.href = fallback;
+      });
+    </script>
+  </body>
+</html>
