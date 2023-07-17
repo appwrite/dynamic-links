@@ -6,14 +6,16 @@
   "type": "module",
   "scripts": {
     "format": "prettier --write src/**/*.js",
-    "dev": "nodemon --watch src --watch static --exec \"dotenv appwrite-function-utils dev src/main.js\""
+    "dev": "nodemon --watch src --watch static --exec \"appwrite-function-utils dev src/main.js\""
   },
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "appwrite-function-utils": "^0.1.0",
-    "dotenv-cli": "^7.2.1",
+    "appwrite-function-utils": "^0.4.0",
     "nodemon": "^3.0.1",
     "prettier": "^3.0.0"
+  },
+  "dependencies": {
+    "node-appwrite": "^9.0.0"
   }
 }
